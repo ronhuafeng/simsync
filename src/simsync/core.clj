@@ -13,6 +13,15 @@
   (set-environment
     (atom variable-map)))
 
+(defn make-block
+  [block-name input-ports output-ports block-list]
+  { :type 'block
+    :name block-name
+    :input-ports input-ports
+    :output-ports output-ports
+    :sub-blocks block-list}
+  )
+
 (defn make-basic-block
   [block-name input-ports output-ports process-list env]
   { :type 'basic-block
@@ -51,7 +60,7 @@
             "output-port" 'output-port
             "relay-port"  'relay-port)
     :name port-name
-    :source source ;; output-port of a basic-block does not have a source, so this attribute is nil.
+    :source (atom source) ;; output-port of a basic-block does not have a source, so this attribute is nil.
     :env env})
 (defn make-place
   [place-name]
@@ -62,7 +71,7 @@
   [port]
   (case (:type port)
     (input-port, relay-port)
-    (get-input (:source port))
+    (get-input @(:source port))
     output-port
     (let [get-value ((:env port) 'get)]
       (get-value
