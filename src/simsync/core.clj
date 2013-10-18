@@ -1,5 +1,6 @@
 (ns simsync.core
-  (use simsync.others))
+  (use simsync.parser)
+  (use simsync.util))
 
 (defn foo
   "I don't do a whole lot."
@@ -7,39 +8,55 @@
   (println x "Hello, World!"))
 
 
+(defn get-env
+  [variable-map]
+  (set-environment
+    (atom variable-map)))
 
 (defn make-basic-block
-  []
+  [block-name input-ports output-ports process-list env]
   { :type 'basic-block
-    :name "sync-b1"
-    :processes [p1 p2]
-    :environment env
+    :name block-name
+    :input-ports input-ports
+    :output-ports output-ports
+    :processes process-list
+    :env env
     })
 
 (defn make-process
-  []
+  [process-name places init-place transitions priorities env]
   { :type 'process
-    :name "sync-p1"
-    :environment env
-    :transitions []})
+    :name process-name
+    :env env
+    :priorities priorities
+    :transitions (map
+                   #(assoc % :env env)
+                   transitions)
+    :places places
+    :current-place (atom init-place)})
 
 (defn make-transition
-  []
+  [transition-name source target guard action]
   { :type 'transition
-    :name "t1"
-    :guard nil
-    :action nil
-    :source nil
-    :target nil
-    :env nil})
+    :name transition-name
+    :guard (build-AST (str guard ";"))
+    :action (build-AST action)
+    :source source
+    :target target})
 
 (defn make-port
-  []
-  { :type ['input-port 'output-port 'relay-port]
-    :name "port-1"
-    :source nil ;; output-port of a basic-block does not have a source, so this attribute is nil.
-    :env nil
-    })
+  [port-name port-type source env]
+  { :type (case port-type
+            "input-port"  'input-port
+            "output-port" 'output-port
+            "relay-port"  'relay-port)
+    :name port-name
+    :source source ;; output-port of a basic-block does not have a source, so this attribute is nil.
+    :env env})
+(defn make-place
+  [place-name]
+  { :type 'place
+    :name place-name})
 
 (defn get-input
   [port]
@@ -49,14 +66,8 @@
     output-port
     (let [get-value ((:env port) 'get)]
       (get-value
-        (:name port)))))
+        (keyword (:name port))))))
 
-(defn make-connection
-  []
-  { :type 'connection
-    :name "connection-1"
-    :source nil
-    :target nil})
 
 (defn transition-enable?
   [t]
@@ -67,17 +78,27 @@
     true
     false))
 
+(defn get-priority-table
+  [process]
+  {:pre [(= (:type process) 'process)]}
+  (compute-priority-table
+    (:priorities process)))
+
+
 (defn get-enabled-transition
   [process]
-  (let [transitions         (:transitions process)
-        enabled-transitions (filter
-                              #(transition-enable? t)
-                              transitions)]
+  (let [possible-transitions (filter
+                               #(= (:source %) @(:current-place process))
+                               (:transitions process))
+        enabled-transitions  (filter
+                               #(transition-enable? %)
+                               possible-transitions)]
     (if (empty? enabled-transitions)
       nil
-      (top-priority
-        enabled-transitions
-        (get-priority-table process)))))
+      (first
+        (top-priorities
+          enabled-transitions
+          (get-priority-table process))))))
 
 (defn fire-transition!
   [t]
@@ -91,7 +112,11 @@
   {:pre [(= 'basic-block (:type basic-block))]}
   (doseq [p (:processes basic-block)]
     (if-let [t (get-enabled-transition p)]
-      (fire-transition! t))))
+      (do
+        (fire-transition! t)
+        (reset!
+          (:current-place p)
+          (:target t))))))
 
 (defn update-inputs!
   [block]
@@ -106,7 +131,7 @@
       (let [ set-value! ((:env block) 'set)
              value (get-input p)]
         (set-value!
-          (:name p)
+          (keyword (:name p))
           value)))))
 
 (defn tick-block!
