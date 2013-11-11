@@ -2,20 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/simsync/constructor.clj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ast/Expr.java" afterPath="$PROJECT_DIR$/src/ast/Expr.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simsync/core.clj" afterPath="$PROJECT_DIR$/src/simsync/core.clj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/simsync/core_test.clj" afterPath="$PROJECT_DIR$/test/simsync/core_test.clj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simsync.iml" afterPath="$PROJECT_DIR$/simsync.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simsync/parser.clj" afterPath="$PROJECT_DIR$/src/simsync/parser.clj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.clj" afterPath="$PROJECT_DIR$/project.clj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="simsync.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/core.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382068349325" ignored="false" />
-    <file path="/Dummy.txt" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382060005723" ignored="false" />
-    <file path="/Clojure REPL" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382027342220" ignored="false" />
+    <file path="/core.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1383613405574" ignored="false" />
+    <file path="/Dummy.txt" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384135462510" ignored="false" />
+    <file path="/Clojure REPL" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1383654079018" ignored="false" />
     <file path="/others.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1381996425084" ignored="false" />
-    <file path="/parser.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382055906932" ignored="false" />
+    <file path="/parser.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382598904164" ignored="false" />
     <file path="/util.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382017903511" ignored="false" />
-    <file path="/core_test.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382082282789" ignored="false" />
+    <file path="/core_test.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382085861624" ignored="false" />
+    <file path="$PROJECT_DIR$/../simbip/src/simbip/structure.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382496153097" ignored="false" />
+    <file path="/structure.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382495869658" ignored="false" />
+    <file path="$PROJECT_DIR$/../ParseBIP/resource/expr.bip" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1383559226058" ignored="false" />
+    <file path="/expr.bip" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382102798494" ignored="false" />
+    <file path="$PROJECT_DIR$/../simbip/src/simbip/parser.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382104907277" ignored="false" />
+    <file path="$PROJECT_DIR$/../simbip/.idea/workspace.xml" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382106628324" ignored="false" />
+    <file path="$PROJECT_DIR$/../simbip/src/simbip/constructor.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382496783534" ignored="false" />
+    <file path="/constructor.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1383641707991" ignored="false" />
+    <file path="$PROJECT_DIR$/../ParseBIP/src/ast/Expr.java" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1383619974423" ignored="false" />
+    <file path="/Expr.java" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1383620080462" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +42,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -67,6 +78,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -79,16 +91,25 @@
       <file leaf-file-name="core.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simsync/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="24" selection-start="2992" selection-end="2992" vertical-scroll-proportion="0.0">
+            <state line="26" column="69" selection-start="661" selection-end="661" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="util.clj" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simsync/util.clj">
+      <file leaf-file-name="constructor.clj" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simsync/constructor.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="6" selection-start="2360" selection-end="2370" vertical-scroll-proportion="0.0">
+            <state line="56" column="47" selection-start="2651" selection-end="2651" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project.clj" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/project.clj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="11" selection-start="229" selection-end="229" vertical-scroll-proportion="0.12331839">
               <folding />
             </state>
           </provider>
@@ -97,16 +118,7 @@
       <file leaf-file-name="parser.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simsync/parser.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="111" column="24" selection-start="2998" selection-end="2998" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="core_test.clj" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/simsync/core_test.clj">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="218" column="55" selection-start="8499" selection-end="8499" vertical-scroll-proportion="0.8348348">
+            <state line="55" column="16" selection-start="1873" selection-end="1873" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -120,6 +132,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="SYNC_SETTING" value="DONT" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
@@ -134,8 +147,11 @@
         <option value="$PROJECT_DIR$/src/simsync/util.clj" />
         <option value="$PROJECT_DIR$/src/runtime/misc/IntervalSet.java" />
         <option value="$PROJECT_DIR$/src/simsync/parser.clj" />
-        <option value="$PROJECT_DIR$/src/simsync/core.clj" />
+        <option value="$PROJECT_DIR$/project.clj" />
         <option value="$PROJECT_DIR$/test/simsync/core_test.clj" />
+        <option value="$PROJECT_DIR$/src/simsync/core.clj" />
+        <option value="$PROJECT_DIR$/src/ast/Expr.java" />
+        <option value="$PROJECT_DIR$/src/simsync/constructor.clj" />
       </list>
     </option>
   </component>
@@ -173,7 +189,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -245,6 +260,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -253,12 +269,13 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/project.clj" />
+    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="last_opened_file_path" value="E:/Portable Program Files/Git/cmd/git.exe" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.searchVisible" value="true" />
@@ -415,7 +432,11 @@
       <created>1382055987502</created>
       <updated>1382055987502</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="完成了 block 的功能&#10;添加了带仿真序列的测试用例">
+      <created>1382082383792</created>
+      <updated>1382082383792</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -425,21 +446,20 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.104166664" sideWeight="0.75408053" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17864583" sideWeight="0.7138194" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28618065" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32752994" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14427084" sideWeight="0.75408053" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14375" sideWeight="0.64411366" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.118229166" sideWeight="0.75408053" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24591948" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.203125" sideWeight="0.7138194" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28618065" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -447,6 +467,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32752994" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -492,7 +513,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成了 basic block 的功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了 block 的功能&#10;添加了带仿真序列的测试用例" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -507,6 +528,7 @@
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
     <MESSAGE value="完成了 basic block 的功能" />
+    <MESSAGE value="完成了 block 的功能&#10;添加了带仿真序列的测试用例" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -516,39 +538,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/simsync/parser.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="244" column="19" selection-start="6999" selection-end="6999" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/simsync/core_test.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="56" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simsync/core.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="25" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simsync/util.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="51" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="7" column="51" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simsync/parser.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="6" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="8" column="6" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project.clj">
@@ -563,9 +560,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/simsync/core_test.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/clojure/clojure/1.5.1/clojure-1.5.1.jar!/clojure/core.clj">
@@ -580,40 +575,55 @@
         <state line="0" column="4" selection-start="4" selection-end="18" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="28" selection-start="181" selection-end="184" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ast/ExprWalker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="14" selection-start="243" selection-end="243" vertical-scroll-proportion="0.2755102" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simsync/parser.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="24" selection-start="2998" selection-end="2998" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simsync/util.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="6" selection-start="2360" selection-end="2370" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="71" column="0" selection-start="2129" selection-end="2129" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simsync/core.clj">
+    <entry file="file://$PROJECT_DIR$/src/ast/ExprParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="24" selection-start="2992" selection-end="2992" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="17" column="13" selection-start="634" selection-end="634" vertical-scroll-proportion="0.15017065" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ast/Expr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="79" selection-start="427" selection-end="427" vertical-scroll-proportion="0.80733943" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/simsync/core_test.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="218" column="55" selection-start="8499" selection-end="8499" vertical-scroll-proportion="0.8348348">
+        <state line="9" column="27" selection-start="306" selection-end="313" vertical-scroll-proportion="0.32142857" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simsync/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="69" selection-start="661" selection-end="661" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simsync/parser.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="16" selection-start="1873" selection-end="1873" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simsync/constructor.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="47" selection-start="2651" selection-end="2651" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="11" selection-start="229" selection-end="229" vertical-scroll-proportion="0.12331839">
           <folding />
         </state>
       </provider>

@@ -47,7 +47,13 @@
         (get @atomic-map bind-name))
       set
       (fn [bind-name value]
-        (swap! atomic-map assoc bind-name value)))))
+        (swap! atomic-map assoc bind-name value))
+      value
+      (fn []
+        @atomic-map)
+      reset
+      (fn [reset-map]
+        (reset! atomic-map reset-map)))))
 
 (defn merge-environment
   [atomic-map extern-map]

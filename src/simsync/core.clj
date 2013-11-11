@@ -2,12 +2,6 @@
   (use simsync.parser)
   (use simsync.util))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-
-
 (defn get-env
   [variable-map]
   (set-environment
@@ -24,13 +18,20 @@
 
 (defn make-basic-block
   [block-name input-ports output-ports process-list env]
-  { :type 'basic-block
-    :name block-name
-    :input-ports input-ports
-    :output-ports output-ports
-    :processes process-list
-    :env env
-    })
+  (let [result { :type 'basic-block
+                 :name block-name
+                 :input-ports input-ports
+                 :output-ports output-ports
+                 :processes process-list
+                 :env env
+                 }]
+    (do
+      (doseq [port (:input-ports result)]
+        (reset! (:env port) env))
+      (doseq [port (:output-ports result)]
+        (reset! (:env port) env))
+
+      result)))
 
 (defn make-process
   [process-name places init-place transitions priorities env]
@@ -61,7 +62,7 @@
             "relay-port"  'relay-port)
     :name port-name
     :source (atom source) ;; output-port of a basic-block does not have a source, so this attribute is nil.
-    :env env})
+    :env (atom env)})
 (defn make-place
   [place-name]
   { :type 'place
@@ -73,7 +74,7 @@
     (input-port, relay-port)
     (get-input @(:source port))
     output-port
-    (let [get-value ((:env port) 'get)]
+    (let [get-value (@(:env port) 'get)]
       (get-value
         (keyword (:name port))))))
 
@@ -164,6 +165,37 @@
     (tick-block! top-block)))
 
 
+
+(defn get-snapshot
+  [block]
+  (case (:type block)
+    block
+    {
+     :sub-blocks (map get-snapshot
+                   (:sub-blocks block))
+      }
+    basic-block
+    {
+      :env-value ((:env block) 'value)
+      :processes (map (fn [p]
+                              @(:current-place p))
+                         (:processes block))
+      }))
+
+(defn restore-snapshot!
+  [block snapshot]
+  (case (:type block)
+    block
+    (doseq [b (:sub-blocks block)
+            b-snapshot (:sub-blocks snapshot)]
+      (restore-snapshot! b b-snapshot))
+    basic-block
+    (do
+      (doseq [p (:processes block)
+              p-current-place (:processes snapshot)]
+        (reset! (:current-place p)
+          p-current-place))
+      (((:env block) 'reset) (:env-value snapshot)))))
 
 
 
