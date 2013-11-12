@@ -197,6 +197,20 @@
           p-current-place))
       (((:env block) 'reset) (:env-value snapshot)))))
 
+(defn print-block!
+  [block]
+  (case (:type block)
+    block
+    (doseq [b (:sub-blocks block)]
+      (println (:name block))
+      (print-block! b)
+      (println))
+    basic-block
+    (do
+      (println (:name block) "\t->>")
+      (doseq [p (:output-ports block)]
+        (print (:name p) " :\t" (get-input p))))))
+
 
 
 

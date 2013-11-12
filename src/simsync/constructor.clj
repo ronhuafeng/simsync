@@ -43,7 +43,13 @@
                          void]
               ^:static [ toKeyword
                          [String]
-                         clojure.lang.Keyword]]))
+                         clojure.lang.Keyword]
+              ^:static [ getSnapshot
+                         [clojure.lang.PersistentArrayMap]
+                         clojure.lang.PersistentArrayMap]
+              ^:static [ printBlock
+                         [clojure.lang.PersistentArrayMap]
+                         void]]))
 ;; [block-name input-ports output-ports block-list]
 
 (defn -makeBlock
@@ -74,3 +80,10 @@
   [value-map]
   (get-env value-map)
   )
+
+(defn -getSnapshot
+  [block]
+  (get-snapshot block))
+(defn -printBlock
+  [block]
+  (print-block! block))
