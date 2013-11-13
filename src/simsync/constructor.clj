@@ -49,6 +49,12 @@
                          clojure.lang.PersistentArrayMap]
               ^:static [ printBlock
                          [clojure.lang.PersistentArrayMap]
+                         void]
+              ^:static [ getBasicBlockOutputs
+                         [clojure.lang.PersistentArrayMap]
+                         clojure.lang.LazySeq]
+              ^:static [ setBasickBlockEnvValue
+                         [clojure.lang.PersistentArrayMap String Object]
                          void]]))
 ;; [block-name input-ports output-ports block-list]
 
@@ -87,3 +93,26 @@
 (defn -printBlock
   [block]
   (print-block! block))
+(defn -getBasicBlockOutputs
+  [block]
+  {:pre [(= 'basic-block (:type block))]}
+  (map
+    (fn [p]
+      {
+       "name" (:name p)
+       "type" (cond
+                (number? (get-input p))
+                "int"
+                (instance? Boolean (get-input))
+                "bool")
+       "value" (str (get-input p))
+        })
+    (:output-ports block)))
+
+(defn -setBasickBlockEnvValue
+  [block port-name port-value]
+  {:pre [(= 'basic-block (:type block))]}
+  (let [env (:env block)
+        setter (env 'set)]
+    (setter (keyword port-name) port-value)))
+
