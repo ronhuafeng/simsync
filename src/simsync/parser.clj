@@ -82,16 +82,14 @@
     "&" bit-and
     "^" bit-xor
     "|" bit-or
-    "&&" (fn rec-and [a & args]
-           (and a
-             (if (empty? args)
-               true
-               (rec-and args))))
-    "||" (fn rec-or [a & args]
-           (or a
-             (if (empty? args)
-               false
-               (rec-or args))))
+    "&&" (fn [& args]
+           (if (every? true? args)
+             true
+             false))
+    "||" (fn [& args]
+           (if (some true? args)
+             true
+             false))
     "=" (fn [setter name value ]
           (setter name value))
     ))

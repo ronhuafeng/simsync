@@ -1,13 +1,13 @@
 (ns simsync.util
   (use simsync.parser))
 
-(defn make-priority
+#_(defn make-priority
   [low high guard-string]
   { :low low
     :high high
     :guard? (build-AST (str guard-string ";"))})
 
-(defn compute-priority-table
+#_(defn compute-priority-table
   [priority-list]
   "Assume all guards to be true, i.e. the priority-list is a filtered result of guards."
   (let [ get-table-item (fn [table x y]
@@ -69,7 +69,7 @@
       init-table
       update-list)))
 
-(defn top-priorities
+#_(defn top-priorities
   [candidates priority-table]
   (let [get-table-item (fn [table x y]
                          (get

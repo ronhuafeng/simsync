@@ -72,7 +72,10 @@
   [port]
   (case (:type port)
     (input-port, relay-port)
-    (get-input @(:source port))
+    (let [source @(:source port)]
+      (if (nil? source)
+        nil
+        (get-input source)))
     output-port
     (let [get-value (@(:env port) 'get)]
       (get-value
@@ -88,12 +91,11 @@
     true
     false))
 
-(defn get-priority-table
+#_(defn get-priority-table
   [process]
   {:pre [(= (:type process) 'process)]}
   (compute-priority-table
     (:priorities process)))
-
 
 (defn get-enabled-transition
   [process]
@@ -105,7 +107,8 @@
                                possible-transitions)]
     (if (empty? enabled-transitions)
       nil
-      (first
+      (first enabled-transitions)
+      #_(first
         (top-priorities
           enabled-transitions
           (get-priority-table process))))))
