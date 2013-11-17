@@ -47,6 +47,9 @@
               ^:static [ getSnapshot
                          [clojure.lang.PersistentArrayMap]
                          clojure.lang.PersistentArrayMap]
+              ^:static [ restoreSnapshot
+                         [clojure.lang.PersistentArrayMap clojure.lang.PersistentArrayMap]
+                         void]
               ^:static [ printBlock
                          [clojure.lang.PersistentArrayMap]
                          void]
@@ -56,9 +59,15 @@
               ^:static [ getBasicBlockInputs
                          [clojure.lang.PersistentArrayMap]
                          clojure.lang.LazySeq]
+              ^:static [ getBasicBlockVariables
+                         [clojure.lang.PersistentArrayMap]
+                         clojure.lang.LazySeq]
               ^:static [ setBasickBlockEnvValue
                          [clojure.lang.PersistentArrayMap String Object]
-                         void]]))
+                         void]
+              ^:static [ getBasickBlockEnvValue
+                         [clojure.lang.PersistentArrayMap String]
+                         clojure.lang.PersistentArrayMap]]))
 ;; [block-name input-ports output-ports block-list]
 
 (defn -makeBlock
@@ -93,6 +102,10 @@
 (defn -getSnapshot
   [block]
   (get-snapshot block))
+(defn -restoreSnapshot
+  [block snapshot]
+  (restore-snapshot! block snapshot))
+
 (defn -printBlock
   [block]
   (print-block! block))
@@ -121,11 +134,30 @@
         "type" (cond
                  (number? (get-input p))
                  "int"
-                 (instance? Boolean (get-input))
+                 (instance? Boolean (get-input p))
                  "bool")
         "value" (str (get-input p))
         })
     (:input-ports block)))
+
+(defn -getBasicBlockVariables
+  [block]
+  {:pre [(= 'basic-block (:type block))]}
+  (let [env (:env block)
+        value (env 'value)]
+    (map
+      (fn [k, v]
+        {
+          "name" (name k)
+          "type" (cond
+                   (number? v)
+                   "int"
+                   (instance? Boolean v)
+                   "bool")
+          "value" (str v)
+          })
+      (keys (value))
+      (vals (value)))))
 
 (defn -setBasickBlockEnvValue
   [block port-name port-value]
@@ -133,4 +165,19 @@
   (let [env (:env block)
         setter (env 'set)]
     (setter (keyword port-name) port-value)))
+(defn -getBasickBlockEnvValue
+  [block port-name]
+  {:pre [(= 'basic-block (:type block))]}
+  (let [env (:env block)
+        getter (env 'get)
+        v (getter (keyword port-name))]
+    {
+      "name" port-name
+      "type" (cond
+               (number? v)
+               "int"
+               (instance? Boolean v)
+               "bool")
+      "value" (str v)
+      }))
 

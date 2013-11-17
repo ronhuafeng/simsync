@@ -149,13 +149,31 @@
         (is (= Init @(:current-place Process1)))
         (is (= Init2 @(:current-place Process2)))
 
-        (tick-block! Block3)
-        (is (= Run @(:current-place Process1)))
-        (is (= Run2 @(:current-place Process2)))
-        (is (= 8 ((basic-block1-env 'get) :O2)))
-        (is (= 4 ((basic-block2-env 'get) :O3)))
+        (let [snapshot (get-snapshot Block3)]
+          (do
 
-        (is (= 6 (get-input O1)))))))
+            (is (= Init @(:current-place Process1)))
+            (is (= Init2 @(:current-place Process2)))
+            (is (= 3 ((basic-block1-env 'get) :O2)))
+            (is (= 0 ((basic-block2-env 'get) :O3)))
+
+
+            (tick-block! Block3)
+            (is (= Run @(:current-place Process1)))
+            (is (= Run2 @(:current-place Process2)))
+            (is (= 8 ((basic-block1-env 'get) :O2)))
+            (is (= 4 ((basic-block2-env 'get) :O3)))
+            (is (= 6 (get-input O1)))
+
+            (tick-block! Block3)
+            (restore-snapshot! Block3 snapshot)
+
+            (is (= Init @(:current-place Process1)))
+            (is (= Init2 @(:current-place Process2)))) )
+
+
+
+        ))))
 
 (deftest compound-sequence-test
   (testing "compound test, mock an object."

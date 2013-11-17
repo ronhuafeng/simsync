@@ -155,6 +155,7 @@
       (tick-block! b))
 
     basic-block
+    ;; basic block should check clk port first
     (processes-advance! block)))
 
 (defn top-cycle!
@@ -174,30 +175,40 @@
   (case (:type block)
     block
     {
-     :sub-blocks (map get-snapshot
-                   (:sub-blocks block))
+     :sub-blocks (vec (map get-snapshot
+                        (:sub-blocks block)))
       }
     basic-block
     {
-      :env-value ((:env block) 'value)
-      :processes (map (fn [p]
-                              @(:current-place p))
-                         (:processes block))
+      :env-value (((:env block) 'value))
+      :processes (vec (map (fn [p]
+                               @(:current-place p))
+                          (:processes block)))
       }))
 
 (defn restore-snapshot!
   [block snapshot]
   (case (:type block)
     block
-    (doseq [b (:sub-blocks block)
+    #_(doseq [b (:sub-blocks block)
             b-snapshot (:sub-blocks snapshot)]
       (restore-snapshot! b b-snapshot))
+    (doall
+      (map
+        #(restore-snapshot! %1 %2)
+        (:sub-blocks block)
+        (:sub-blocks snapshot)))
     basic-block
     (do
-      (doseq [p (:processes block)
+      #_(doseq [p (:processes block)
               p-current-place (:processes snapshot)]
         (reset! (:current-place p)
           p-current-place))
+      (doall
+        (map
+          #(reset! (:current-place %1) %2)
+          (:processes block)
+          (:processes snapshot)))
       (((:env block) 'reset) (:env-value snapshot)))))
 
 (defn print-block!
