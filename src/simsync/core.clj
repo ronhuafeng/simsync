@@ -7,13 +7,55 @@
   (set-environment
     (atom variable-map)))
 
+(defn get-snapshot
+  [block]
+  (case (:type block)
+    block
+    {
+      :sub-blocks (vec (map get-snapshot
+                         (:sub-blocks block)))
+      }
+    basic-block
+    {
+      :env-value (((:env block) 'value))
+      :processes (vec (map (fn [p]
+                             @(:current-place p))
+                        (:processes block)))
+      }))
+
+(defn restore-snapshot!
+  [block snapshot]
+  (case (:type block)
+    block
+    #_(doseq [b (:sub-blocks block)
+              b-snapshot (:sub-blocks snapshot)]
+        (restore-snapshot! b b-snapshot))
+    (doall
+      (map
+        #(restore-snapshot! %1 %2)
+        (:sub-blocks block)
+        (:sub-blocks snapshot)))
+    basic-block
+    (do
+      #_(doseq [p (:processes block)
+                p-current-place (:processes snapshot)]
+          (reset! (:current-place p)
+            p-current-place))
+        (doall
+          (map
+            #(reset! (:current-place %1) %2)
+            (:processes block)
+            (:processes snapshot)))
+        (((:env block) 'reset) (:env-value snapshot)))))
+
 (defn make-block
   [block-name input-ports output-ports block-list]
   { :type 'block
     :name block-name
     :input-ports input-ports
     :output-ports output-ports
-    :sub-blocks block-list}
+    :sub-blocks block-list
+    :rst-port (atom nil)}
   )
 
 (defn make-basic-block
@@ -24,6 +66,7 @@
                  :output-ports output-ports
                  :processes process-list
                  :env env
+                 :rst-port (atom nil)
                  }]
     (do
       (doseq [port (:input-ports result)]
@@ -31,7 +74,11 @@
       (doseq [port (:output-ports result)]
         (reset! (:env port) env))
 
-      result)))
+      (assoc
+        result
+        :init-state                   ;; to memorize the initial state of basic block
+        (get-snapshot
+          result)))))
 
 (defn make-process
   [process-name places init-place transitions priorities env]
@@ -79,7 +126,8 @@
     output-port
     (let [get-value (@(:env port) 'get)]
       (get-value
-        (keyword (:name port))))))
+        (keyword (:name port))))
+    nil))
 
 
 (defn transition-enable?
@@ -147,69 +195,46 @@
           (keyword (:name p))
           value)))))
 
-(defn tick-block!
+
+(defn reset-block!
   [block]
+  {:pre [(or
+           (= 'block (:type block))
+           (= 'basic-block (:type block)))]}
   (case (:type block)
     block
     (doseq [b (:sub-blocks block)]
-      (tick-block! b))
+      (reset-block! b))
+    basic-block
+    (restore-snapshot!
+      block
+      (:init-state block))))
+
+(defn tick-block!
+  [block]
+  {:pre [(or
+           (= 'block (:type block))
+           (= 'basic-block (:type block)))]}
+  (case (:type block)
+    block
+    (if (= 1
+          (get-input @(:rst-port block)))
+      (reset-block! block)
+      (doseq [b (:sub-blocks block)]
+        (tick-block! b)))
 
     basic-block
     ;; basic block should check clk port first
-    (processes-advance! block)))
+    (if (= 1
+          (get-input @(:rst-port block)))
+      (reset-block! block)
+      (processes-advance! block))))
 
 (defn top-cycle!
   [top-block]
-  {:pre [(not
-           (some nil?
-             (map get-input
-               (:input-ports top-block))))]}
   (do
     (update-inputs! top-block)
     (tick-block! top-block)))
-
-
-
-(defn get-snapshot
-  [block]
-  (case (:type block)
-    block
-    {
-     :sub-blocks (vec (map get-snapshot
-                        (:sub-blocks block)))
-      }
-    basic-block
-    {
-      :env-value (((:env block) 'value))
-      :processes (vec (map (fn [p]
-                               @(:current-place p))
-                          (:processes block)))
-      }))
-
-(defn restore-snapshot!
-  [block snapshot]
-  (case (:type block)
-    block
-    #_(doseq [b (:sub-blocks block)
-            b-snapshot (:sub-blocks snapshot)]
-      (restore-snapshot! b b-snapshot))
-    (doall
-      (map
-        #(restore-snapshot! %1 %2)
-        (:sub-blocks block)
-        (:sub-blocks snapshot)))
-    basic-block
-    (do
-      #_(doseq [p (:processes block)
-              p-current-place (:processes snapshot)]
-        (reset! (:current-place p)
-          p-current-place))
-      (doall
-        (map
-          #(reset! (:current-place %1) %2)
-          (:processes block)
-          (:processes snapshot)))
-      (((:env block) 'reset) (:env-value snapshot)))))
 
 (defn print-block!
   [block]

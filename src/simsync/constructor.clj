@@ -67,7 +67,11 @@
                          void]
               ^:static [ getBasickBlockEnvValue
                          [clojure.lang.PersistentArrayMap String]
-                         clojure.lang.PersistentArrayMap]]))
+                         clojure.lang.PersistentArrayMap]
+              ^:static [ setRSTPort
+                         [clojure.lang.PersistentArrayMap clojure.lang.PersistentArrayMap]
+                         void]])
+  (:import [clojure.lang PersistentArrayMap]))
 ;; [block-name input-ports output-ports block-list]
 
 (defn -makeBlock
@@ -180,4 +184,13 @@
                "bool")
       "value" (str v)
       }))
+
+(defn -setRSTPort
+  [block port]
+  {:pre [(or
+           (= 'block (:type block))
+           (= 'basic-block (:type block)))]}
+  (reset!
+    (:rst-port block)
+    port))
 

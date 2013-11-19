@@ -4,13 +4,12 @@
     <list default="true" id="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simsync/constructor.clj" afterPath="$PROJECT_DIR$/src/simsync/constructor.clj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simsync/core.clj" afterPath="$PROJECT_DIR$/src/simsync/core.clj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/simsync/core_test.clj" afterPath="$PROJECT_DIR$/test/simsync/core_test.clj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="simsync.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/core.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384678146271" ignored="false" />
-    <file path="/Dummy.txt" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384669567629" ignored="false" />
+    <file path="/core.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384760568260" ignored="false" />
+    <file path="/Dummy.txt" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384743423636" ignored="false" />
     <file path="/Clojure REPL" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384677685681" ignored="false" />
     <file path="/others.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1381996425084" ignored="false" />
     <file path="/parser.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382598904164" ignored="false" />
@@ -23,7 +22,7 @@
     <file path="$PROJECT_DIR$/../simbip/src/simbip/parser.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382104907277" ignored="false" />
     <file path="$PROJECT_DIR$/../simbip/.idea/workspace.xml" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384486142876" ignored="false" />
     <file path="$PROJECT_DIR$/../simbip/src/simbip/constructor.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384484447887" ignored="false" />
-    <file path="/constructor.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384673801838" ignored="false" />
+    <file path="/constructor.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384761353868" ignored="false" />
     <file path="$PROJECT_DIR$/../ParseBIP/src/ast/Expr.java" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1383619974423" ignored="false" />
     <file path="/Expr.java" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1383620080462" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -86,10 +85,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="core.clj" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="core.clj" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/simsync/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="207" column="16" selection-start="5063" selection-end="5063" vertical-scroll-proportion="0.0">
+            <state line="237" column="0" selection-start="5909" selection-end="5909" vertical-scroll-proportion="0.69491524">
               <folding />
             </state>
           </provider>
@@ -107,16 +106,16 @@
       <file leaf-file-name="constructor.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simsync/constructor.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="42" selection-start="5000" selection-end="5000" vertical-scroll-proportion="0.0">
+            <state line="74" column="57" selection-start="3664" selection-end="3664" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core_test.clj" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="core_test.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/simsync/core_test.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="164" column="27" selection-start="6327" selection-end="6327" vertical-scroll-proportion="0.3898305">
+            <state line="191" column="34" selection-start="7148" selection-end="7148" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -147,9 +146,9 @@
         <option value="$PROJECT_DIR$/src/ast/Expr.java" />
         <option value="$PROJECT_DIR$/src/simsync/util.clj" />
         <option value="$PROJECT_DIR$/src/simsync/parser.clj" />
-        <option value="$PROJECT_DIR$/src/simsync/constructor.clj" />
-        <option value="$PROJECT_DIR$/src/simsync/core.clj" />
         <option value="$PROJECT_DIR$/test/simsync/core_test.clj" />
+        <option value="$PROJECT_DIR$/src/simsync/core.clj" />
+        <option value="$PROJECT_DIR$/src/simsync/constructor.clj" />
       </list>
     </option>
   </component>
@@ -187,8 +186,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -263,6 +260,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -277,12 +276,12 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -306,15 +305,6 @@
       <setting name="repl" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="LeiningenRunConfiguration" factoryName="Leiningen">
-      <LeiningenRunnerParameters>
-        <option name="goals">
-          <list />
-        </option>
-        <option name="workingDirectory" value="" />
-      </LeiningenRunnerParameters>
-      <method />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -323,17 +313,13 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+    <configuration default="true" type="LeiningenRunConfiguration" factoryName="Leiningen">
+      <LeiningenRunnerParameters>
+        <option name="goals">
+          <list />
+        </option>
+        <option name="workingDirectory" value="" />
+      </LeiningenRunnerParameters>
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -362,6 +348,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -454,7 +453,11 @@
       <created>1384655442128</created>
       <updated>1384655442128</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix undo function">
+      <created>1384678374418</created>
+      <updated>1384678374418</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -531,7 +534,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="修正了parser的 &amp;&amp; 和 || 的错误实现，copy from simBIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix undo function" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -551,6 +554,7 @@
     <MESSAGE value="增加了打印block output port 端口的内容" />
     <MESSAGE value="增加了获取基本模块输出和设定基本模块端口值的功能。" />
     <MESSAGE value="修正了parser的 &amp;&amp; 和 || 的错误实现，copy from simBIP" />
+    <MESSAGE value="fix undo function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -624,13 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simsync/constructor.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="42" selection-start="5000" selection-end="5000" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simsync/parser.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="19" selection-start="1818" selection-end="1821" vertical-scroll-proportion="0.0">
@@ -638,16 +635,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simsync/core.clj">
+    <entry file="file://$PROJECT_DIR$/test/simsync/core_test.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="207" column="16" selection-start="5063" selection-end="5063" vertical-scroll-proportion="0.0">
+        <state line="191" column="34" selection-start="7148" selection-end="7148" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/simsync/core_test.clj">
+    <entry file="file://$PROJECT_DIR$/src/simsync/constructor.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="27" selection-start="6327" selection-end="6327" vertical-scroll-proportion="0.3898305">
+        <state line="74" column="57" selection-start="3664" selection-end="3664" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simsync/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="237" column="0" selection-start="5909" selection-end="5909" vertical-scroll-proportion="0.69491524">
           <folding />
         </state>
       </provider>
