@@ -70,7 +70,10 @@
                          clojure.lang.PersistentArrayMap]
               ^:static [ setRSTPort
                          [clojure.lang.PersistentArrayMap clojure.lang.PersistentArrayMap]
-                         void]])
+                         void]
+              ^:static [ getCurrentPlaces
+                         [clojure.lang.PersistentArrayMap]
+                         clojure.lang.PersistentVector]])
   (:import [clojure.lang PersistentArrayMap]))
 ;; [block-name input-ports output-ports block-list]
 
@@ -123,7 +126,7 @@
        "type" (cond
                 (number? (get-input p))
                 "int"
-                (instance? Boolean (get-input))
+                (instance? Boolean (get-input p))
                 "bool")
        "value" (str (get-input p))
         })
@@ -193,4 +196,8 @@
   (reset!
     (:rst-port block)
     port))
+
+(defn -getCurrentPlaces
+  [block]
+  (vec (get-current-places block)))
 

@@ -8,9 +8,9 @@
     </list>
     <ignored path="simsync.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/core.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384760568260" ignored="false" />
-    <file path="/Dummy.txt" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384743423636" ignored="false" />
-    <file path="/Clojure REPL" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384677685681" ignored="false" />
+    <file path="/core.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384852017415" ignored="false" />
+    <file path="/Dummy.txt" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1386057729787" ignored="false" />
+    <file path="/Clojure REPL" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384850896125" ignored="false" />
     <file path="/others.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1381996425084" ignored="false" />
     <file path="/parser.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382598904164" ignored="false" />
     <file path="/util.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384650307296" ignored="false" />
@@ -22,7 +22,7 @@
     <file path="$PROJECT_DIR$/../simbip/src/simbip/parser.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1382104907277" ignored="false" />
     <file path="$PROJECT_DIR$/../simbip/.idea/workspace.xml" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384486142876" ignored="false" />
     <file path="$PROJECT_DIR$/../simbip/src/simbip/constructor.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384484447887" ignored="false" />
-    <file path="/constructor.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1384761353868" ignored="false" />
+    <file path="/constructor.clj" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1386057791116" ignored="false" />
     <file path="$PROJECT_DIR$/../ParseBIP/src/ast/Expr.java" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1383619974423" ignored="false" />
     <file path="/Expr.java" changelist="b95d5124-fcc3-444b-8cdc-ef4d4670cba1" time="1383620080462" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -85,10 +85,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="core.clj" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="core.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simsync/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="237" column="0" selection-start="5909" selection-end="5909" vertical-scroll-proportion="0.69491524">
+            <state line="61" column="89" selection-start="1513" selection-end="1513" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -103,10 +103,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="constructor.clj" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="constructor.clj" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/simsync/constructor.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="57" selection-start="3664" selection-end="3664" vertical-scroll-proportion="0.0">
+            <state line="120" column="56" selection-start="4976" selection-end="4976" vertical-scroll-proportion="0.12400455">
               <folding />
             </state>
           </provider>
@@ -457,7 +457,11 @@
       <created>1384678374418</created>
       <updated>1384678374418</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add rst port support">
+      <created>1384828054044</created>
+      <updated>1384828054044</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -467,7 +471,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20833333" sideWeight="0.7355822" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2078125" sideWeight="0.7361299" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -479,8 +483,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14375" sideWeight="0.64411366" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1328125" sideWeight="0.7355822" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26441786" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13072917" sideWeight="0.7361299" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2638701" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -534,7 +538,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix undo function" />
+    <option name="LAST_COMMIT_MESSAGE" value="add rst port support" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -555,6 +559,7 @@
     <MESSAGE value="增加了获取基本模块输出和设定基本模块端口值的功能。" />
     <MESSAGE value="修正了parser的 &amp;&amp; 和 || 的错误实现，copy from simBIP" />
     <MESSAGE value="fix undo function" />
+    <MESSAGE value="add rst port support" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -623,7 +628,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simsync/util.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="2" selection-start="44" selection-end="44" vertical-scroll-proportion="0.10169491">
+        <state line="3" column="2" selection-start="44" selection-end="44" vertical-scroll-proportion="0.10169491" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/simsync/core_test.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="191" column="34" selection-start="7148" selection-end="7148" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simsync/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="89" selection-start="1513" selection-end="1513" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -635,23 +652,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/simsync/core_test.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="191" column="34" selection-start="7148" selection-end="7148" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simsync/constructor.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="57" selection-start="3664" selection-end="3664" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simsync/core.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="237" column="0" selection-start="5909" selection-end="5909" vertical-scroll-proportion="0.69491524">
+        <state line="120" column="56" selection-start="4976" selection-end="4976" vertical-scroll-proportion="0.12400455">
           <folding />
         </state>
       </provider>

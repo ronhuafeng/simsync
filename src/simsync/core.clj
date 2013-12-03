@@ -251,6 +251,23 @@
         (print (:name p) " :\t" (get-input p))))))
 
 
+(defn get-current-places
+  [block]
+  {:pre [(or
+           (= 'block (:type block))
+           (= 'basic-block (:type block)))]}
+  (case (:type block)
+    block
+    (reduce into
+      []
+      (map
+        #(get-current-places %)
+        (:sub-blocks block)))
+    basic-block
+    (vec
+      (map
+        #(deref (:current-place %))
+        (:processes block)))))
 
 
 
