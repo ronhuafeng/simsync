@@ -109,7 +109,13 @@
             "relay-port"  'relay-port)
     :name port-name
     :source (atom source) ;; output-port of a basic-block does not have a source, so this attribute is nil.
-    :env (atom env)})
+    :env (atom env)
+    :action (atom "")})
+
+(defn set-port-action!
+  [port action]
+  (reset! (:action port) action))
+
 (defn make-place
   [place-name]
   { :type 'place
@@ -122,7 +128,19 @@
     (let [source @(:source port)]
       (if (nil? source)
         nil
-        (get-input source)))
+        (let [raw-source-value (get-input source)
+              tmp-env (get-env
+                        {(keyword (:name source)) raw-source-value})
+
+              tmp-ast (build-AST @(:action port))
+
+              result (compute!
+                       tmp-ast
+                       tmp-env)]
+          ;; get data converted by connection action
+          (if (nil? result)
+            raw-source-value
+            result) )))
     output-port
     (let [get-value (@(:env port) 'get)]
       (get-value

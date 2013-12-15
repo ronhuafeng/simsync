@@ -1,6 +1,7 @@
 (ns simsync.core-test
   (:require [clojure.test :refer :all]
-            [simsync.core :refer :all]))
+            [simsync.core :refer :all]
+            [simsync.parser :refer :all]))
 
 (deftest simple-test
   (testing "simple test, mock an object."
@@ -236,3 +237,17 @@
             (top-cycle! Block3)
             (println "O3: " (get-input O3))))
         ))))
+
+
+(deftest expression-test
+  (testing
+    (let [tmp-env (get-env
+                    {(keyword "out") 0})
+
+          tmp-ast (build-AST "out + 1;")
+
+          result (compute!
+                   tmp-ast
+                   tmp-env)]
+      (is (= 1 result)))))
+

@@ -73,7 +73,11 @@
                          void]
               ^:static [ getCurrentPlaces
                          [clojure.lang.PersistentArrayMap]
-                         clojure.lang.PersistentVector]])
+                         clojure.lang.PersistentVector]
+              ^:static [ setPortAction
+                         [clojure.lang.PersistentArrayMap
+                          String]
+                         void]])
   (:import [clojure.lang PersistentArrayMap]))
 ;; [block-name input-ports output-ports block-list]
 
@@ -200,4 +204,10 @@
 (defn -getCurrentPlaces
   [block]
   (vec (get-current-places block)))
+
+(defn -setPortAction
+  [port action]
+  (set-port-action!
+    port
+    action))
 
