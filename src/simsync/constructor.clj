@@ -1,8 +1,9 @@
 (ns simsync.constructor
   (use simsync.core)
+  (use simsync.parser)
   (:gen-class
    :methods [
-              ^:static [ getEnvironment
+              ^:static [ getManualEnvironment
                          [clojure.lang.PersistentArrayMap]
                          Object]
               ^:static [ makeBlock
@@ -105,9 +106,9 @@
 (defn -toKeyword
   [attr]
   (keyword attr))
-(defn -getEnvironment
+(defn -getManualEnvironment
   [value-map]
-  (get-env value-map)
+  (set-manual-environment value-map)
   )
 
 (defn -getSnapshot

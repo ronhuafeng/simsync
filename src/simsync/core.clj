@@ -27,9 +27,6 @@
   [block snapshot]
   (case (:type block)
     block
-    #_(doseq [b (:sub-blocks block)
-              b-snapshot (:sub-blocks snapshot)]
-        (restore-snapshot! b b-snapshot))
     (doall
       (map
         #(restore-snapshot! %1 %2)
@@ -37,16 +34,12 @@
         (:sub-blocks snapshot)))
     basic-block
     (do
-      #_(doseq [p (:processes block)
-                p-current-place (:processes snapshot)]
-          (reset! (:current-place p)
-            p-current-place))
-        (doall
-          (map
-            #(reset! (:current-place %1) %2)
-            (:processes block)
-            (:processes snapshot)))
-        (((:env block) 'reset) (:env-value snapshot)))))
+      (doall
+        (map
+          #(reset! (:current-place %1) %2)
+          (:processes block)
+          (:processes snapshot)))
+      (((:env block) 'reset) (:env-value snapshot)))))
 
 (defn make-block
   [block-name input-ports output-ports block-list]
@@ -242,11 +235,14 @@
         (tick-block! b)))
 
     basic-block
-    ;; basic block should check clk port first
+    ;; basic block should check RST port first
     (if (= 1
           (get-input @(:rst-port block)))
       (reset-block! block)
-      (processes-advance! block))))
+      (do
+        (processes-advance! block)
+        (let [synchronizer ((:env block) 'synchronize)]
+          (synchronizer))))))
 
 (defn top-cycle!
   [top-block]

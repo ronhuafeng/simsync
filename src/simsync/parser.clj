@@ -51,9 +51,33 @@
       value
       (fn []
         @atomic-map)
+      synchronize
+      (fn []
+        ())
       reset
       (fn [reset-map]
         (reset! atomic-map reset-map)))))
+(defn set-manual-environment
+  [value-map]
+  (let [modified-map (atom value-map)
+        atomic-map (atom value-map)]
+    (fn [action]
+      (case action
+        get
+        (fn [bind-name]
+          (get @atomic-map bind-name))
+        set
+        (fn [bind-name value]
+          (swap! modified-map assoc bind-name value))
+        value
+        (fn []
+          @atomic-map)
+        synchronize
+        (fn []
+          (reset! atomic-map @modified-map))
+        reset
+        (fn [reset-map]
+          (reset! atomic-map reset-map))))))
 
 (defn merge-environment
   [atomic-map extern-map]
