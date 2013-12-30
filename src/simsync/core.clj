@@ -150,34 +150,28 @@
     true
     false))
 
-#_(defn get-priority-table
-  [process]
-  {:pre [(= (:type process) 'process)]}
-  (compute-priority-table
-    (:priorities process)))
 
 (defn get-enabled-transition
   [process]
-  (let [possible-transitions (filter
-                               #(= (:source %) @(:current-place process))
-                               (:transitions process))
-        enabled-transitions  (filter
-                               #(transition-enable? %)
-                               possible-transitions)]
+  (let [ possible-transitions (filter
+                                #(= (:source %) @(:current-place process))
+                                (:transitions process))
+         enabled-transitions  (filter
+                                #(transition-enable? %)
+                                possible-transitions)]
     (if (empty? enabled-transitions)
       nil
-      (first enabled-transitions)
-      #_(first
-        (top-priorities
-          enabled-transitions
-          (get-priority-table process))))))
+      (first enabled-transitions))))
 
 (defn fire-transition!
   [t]
   "Should catch written-a-variable-twice-exception"
-  (compute!
-    (:action t)
-    (:env t)))
+  (do
+    #_(println "fire transition: " (:name t))
+    (compute!
+      (:action t)
+      (:env t))
+    #_(println "end fire;")))
 
 (defn processes-advance!
   [basic-block]
@@ -212,14 +206,22 @@
   {:pre [(or
            (= 'block (:type block))
            (= 'basic-block (:type block)))]}
-  (case (:type block)
-    block
-    (doseq [b (:sub-blocks block)]
-      (reset-block! b))
-    basic-block
-    (restore-snapshot!
+  (do
+    (println "reset block.")
+    (case (:type block)
       block
-      (:init-state block))))
+      (doseq [b (:sub-blocks block)]
+        (reset-block! b))
+      basic-block
+      (restore-snapshot!
+        block
+        (:init-state block)))))
+
+(defn synchronize-block!
+  [block]
+  {:pre [(or (= 'basic-block (:type block)))]}
+  (let [synchronizer ((:env block) 'synchronize)]
+    (synchronizer)))
 
 (defn tick-block!
   [block]
@@ -239,9 +241,10 @@
     (if (= 1
           (get-input @(:rst-port block)))
       (reset-block! block)
-      (do
-        (processes-advance! block)
-        (let [synchronizer ((:env block) 'synchronize)]
+      (let [synchronizer ((:env block) 'synchronize)]
+        (do
+          (synchronizer)
+          (processes-advance! block)
           (synchronizer))))))
 
 (defn top-cycle!

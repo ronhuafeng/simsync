@@ -78,6 +78,9 @@
               ^:static [ setPortAction
                          [clojure.lang.PersistentArrayMap
                           String]
+                         void]
+              ^:static [ synchronizeBlock
+                         [clojure.lang.PersistentArrayMap]
                          void]])
   (:import [clojure.lang PersistentArrayMap]))
 ;; [block-name input-ports output-ports block-list]
@@ -211,4 +214,7 @@
   (set-port-action!
     port
     action))
+(defn -synchronizeBlock
+  [block]
+  (synchronize-block! block))
 

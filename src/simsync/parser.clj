@@ -68,13 +68,17 @@
           (get @atomic-map bind-name))
         set
         (fn [bind-name value]
-          (swap! modified-map assoc bind-name value))
+          (do
+            #_(println bind-name " set to " value)
+            (swap! modified-map assoc bind-name value)))
         value
         (fn []
           @atomic-map)
         synchronize
         (fn []
-          (reset! atomic-map @modified-map))
+          (do
+            #_(println @atomic-map @modified-map)
+            (reset! atomic-map @modified-map)))
         reset
         (fn [reset-map]
           (reset! atomic-map reset-map))))))
@@ -190,6 +194,7 @@
             { :operate
               (fn [lv rv]
                 (do
+                  #_(println lv " = " rv)
                   (apply op [setter (:name lv) (:value rv)])  ;; 一开始错把第一个 t1 的选择属性写成了 :value。
                   {:value (:value rv)}))}))
 
