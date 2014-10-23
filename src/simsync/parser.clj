@@ -97,7 +97,7 @@
           #_(str (name keyword1) "-" (name keyword2)))
     "!" not
     "*" *
-    "/" /
+    "/" quot
     "%" mod
     "+" +
     "-" -
